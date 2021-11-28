@@ -67,7 +67,7 @@ public class BanServiceImpl implements BanService {
                 });
     }
 
-    @Scheduled(cron = "0 46 19 * * *")
+    @Scheduled(cron = "0 0 0 * * *")
     public void unBanUsers() {
         banRepository.findAllByBanUntil(LocalDate.now())
                 .doOnNext(banDocument -> {
