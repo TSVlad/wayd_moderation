@@ -1,6 +1,9 @@
 package ru.tsvlad.wayd_moderation.document;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Version;
@@ -15,6 +18,9 @@ import java.time.ZonedDateTime;
 
 @Data
 @Document(collection = "complaints")
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class ComplaintDocument {
     @Id
     private String id;
@@ -33,6 +39,7 @@ public class ComplaintDocument {
 
     private EventDTO eventDTO;
     private UserDTO userDTO;
+    private String imageId;
 
     private ComplaintType type;
 
@@ -45,5 +52,13 @@ public class ComplaintDocument {
         this.complaintStatus = complaintProcessing.getComplaintStatus();
         this.moderatorComment = complaintProcessing.getModeratorComment();
         this.processed = ZonedDateTime.now();
+    }
+
+    public static ComplaintDocument createInvalidImageComplaint(String imageId) {
+        return ComplaintDocument.builder()
+                .imageId(imageId)
+                .type(ComplaintType.INVALID_IMAGE)
+                .complaintStatus(ComplaintStatus.NEW)
+                .build();
     }
 }

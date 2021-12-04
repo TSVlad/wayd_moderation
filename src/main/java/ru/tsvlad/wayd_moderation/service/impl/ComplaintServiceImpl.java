@@ -7,6 +7,7 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 import ru.tsvlad.wayd_moderation.business.ComplaintProcessing;
 import ru.tsvlad.wayd_moderation.document.ComplaintDocument;
+import ru.tsvlad.wayd_moderation.document.SessionDocument;
 import ru.tsvlad.wayd_moderation.enums.ComplaintStatus;
 import ru.tsvlad.wayd_moderation.enums.ComplaintType;
 import ru.tsvlad.wayd_moderation.repository.ComplaintRepository;

@@ -2,7 +2,9 @@ package ru.tsvlad.wayd_moderation.messaging;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 import ru.tsvlad.wayd_moderation.config.security.JwtPayload;
 
@@ -10,6 +12,8 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 @SuperBuilder
 public abstract class AbstractMessage implements Serializable {
     @JsonInclude(JsonInclude.Include.NON_NULL)
