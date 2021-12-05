@@ -5,6 +5,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 import ru.tsvlad.wayd_moderation.document.BanDocument;
+import ru.tsvlad.wayd_moderation.enums.ModeratorDecision;
 import ru.tsvlad.wayd_moderation.messaging.producer.msg.ModerationMessage;
 import ru.tsvlad.wayd_moderation.messaging.producer.msg.ModerationMessageType;
 import ru.tsvlad.wayd_moderation.restapi.dto.BanDTO;
@@ -27,6 +28,14 @@ public class ModerationServiceProducer {
         send(ModerationMessage.builder()
                 .type(ModerationMessageType.UNBAN)
                 .banDTO(modelMapper.map(banDocument, BanDTO.class))
+                .build());
+    }
+
+    public void processImage(String imageId, ModeratorDecision decision) {
+        send(ModerationMessage.builder()
+                .type(ModerationMessageType.IMAGE_MODERATION_DECISION)
+                .imageId(imageId)
+                .decision(decision)
                 .build());
     }
 

@@ -21,7 +21,7 @@ public class ImageConsumer {
             case INVALID_IMAGE:
                 log.info("msg: {}", message);
                 complaintService
-                        .createComplaintAndSetModerator(ComplaintDocument.createInvalidImageComplaint(message.getImageId()))
+                        .createComplaintAndSetModerator(ComplaintDocument.createInvalidImageComplaint(message.getImageDTO()))
                         .subscribe();
                 break;
         }

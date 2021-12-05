@@ -3,6 +3,7 @@ package ru.tsvlad.wayd_moderation.messaging.producer.msg;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.SuperBuilder;
+import ru.tsvlad.wayd_moderation.enums.ModeratorDecision;
 import ru.tsvlad.wayd_moderation.messaging.AbstractMessage;
 import ru.tsvlad.wayd_moderation.restapi.dto.BanDTO;
 
@@ -12,4 +13,7 @@ import ru.tsvlad.wayd_moderation.restapi.dto.BanDTO;
 public class ModerationMessage extends AbstractMessage {
     private ModerationMessageType type;
     private BanDTO banDTO;
+
+    private String imageId;
+    private ModeratorDecision decision;
 }

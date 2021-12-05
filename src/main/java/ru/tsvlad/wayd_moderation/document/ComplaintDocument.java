@@ -11,6 +11,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import ru.tsvlad.wayd_moderation.business.ComplaintProcessing;
 import ru.tsvlad.wayd_moderation.enums.ComplaintStatus;
 import ru.tsvlad.wayd_moderation.enums.ComplaintType;
+import ru.tsvlad.wayd_moderation.messaging.consumer.dto.ImageDTO;
 import ru.tsvlad.wayd_moderation.restapi.dto.EventDTO;
 import ru.tsvlad.wayd_moderation.restapi.dto.UserDTO;
 
@@ -39,7 +40,7 @@ public class ComplaintDocument {
 
     private EventDTO eventDTO;
     private UserDTO userDTO;
-    private String imageId;
+    private ImageDTO imageDTO;
 
     private ComplaintType type;
 
@@ -54,9 +55,9 @@ public class ComplaintDocument {
         this.processed = ZonedDateTime.now();
     }
 
-    public static ComplaintDocument createInvalidImageComplaint(String imageId) {
+    public static ComplaintDocument createInvalidImageComplaint(ImageDTO imageDTO) {
         return ComplaintDocument.builder()
-                .imageId(imageId)
+                .imageDTO(imageDTO)
                 .type(ComplaintType.INVALID_IMAGE)
                 .complaintStatus(ComplaintStatus.NEW)
                 .build();
