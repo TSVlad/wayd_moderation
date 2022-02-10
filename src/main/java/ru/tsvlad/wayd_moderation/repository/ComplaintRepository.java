@@ -11,5 +11,7 @@ import java.util.List;
 
 @Repository
 public interface ComplaintRepository extends ReactiveMongoRepository<ComplaintDocument, String> {
-    Flux<ComplaintDocument> findByModeratorIdAndComplaintStatusInAndTypeIn(long moderatorId, List<ComplaintStatus> complaintStatusList, List<ComplaintType> types);
+    Flux<ComplaintDocument> findByModeratorIdAndComplaintStatusInAndTypeIn(String moderatorId,
+                                                                           List<ComplaintStatus> complaintStatusList,
+                                                                           List<ComplaintType> types);
 }

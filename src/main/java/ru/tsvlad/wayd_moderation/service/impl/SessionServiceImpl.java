@@ -22,7 +22,7 @@ public class SessionServiceImpl implements SessionService {
     private final Random random = new Random();
 
     @Override
-    public Mono<SessionDocument> startSession(long moderatorId) {
+    public Mono<SessionDocument> startSession(String moderatorId) {
         return sessionRepository.findByModeratorIdAndEndIsNull(moderatorId)
                 .flatMap(sessionDocument -> Mono.<SessionDocument>error(new SessionAlreadyOpenedException()))
                 .switchIfEmpty(sessionRepository.save(SessionDocument.builder()
@@ -32,7 +32,7 @@ public class SessionServiceImpl implements SessionService {
     }
 
     @Override
-    public Mono<SessionDocument> closeSession(long moderatorId) {
+    public Mono<SessionDocument> closeSession(String moderatorId) {
         return sessionRepository.findByModeratorIdAndEndIsNull(moderatorId)
                 .flatMap(sessionDocument -> {
                     sessionDocument.setEnd(ZonedDateTime.now());

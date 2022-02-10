@@ -9,7 +9,7 @@ import javax.validation.constraints.NotNull;
 @Data
 public class BanCreationDTO {
     @Min(1)
-    private long userId;
+    private String userId;
     @NotBlank
     private String reason;
     @NotNull

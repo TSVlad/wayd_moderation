@@ -22,14 +22,14 @@ public class BanDocument {
     @Id
     private String id;
 
-    private long userId;
+    private String userId;
     private String reason;
     private String comment;
     @CreatedDate
     private ZonedDateTime banDateTime;
     private LocalDate banUntil;
 
-    private long moderatorId;
+    private String moderatorId;
 
     public static BanDocument create(BanCreation banCreation) {
         return BanDocument.builder()

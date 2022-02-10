@@ -7,7 +7,7 @@ import java.time.ZonedDateTime;
 @Data
 public class SessionDTO {
     private String id;
-    private long moderatorId;
+    private String moderatorId;
     private ZonedDateTime start;
     private ZonedDateTime end;
 }

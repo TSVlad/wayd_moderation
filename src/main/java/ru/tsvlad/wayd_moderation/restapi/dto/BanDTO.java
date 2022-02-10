@@ -9,7 +9,7 @@ import java.time.ZonedDateTime;
 public class BanDTO {
     private String id;
 
-    private long userId;
+    private String userId;
     private String reason;
     private String comment;
     private ZonedDateTime banDateTime;

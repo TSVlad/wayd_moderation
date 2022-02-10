@@ -48,7 +48,8 @@ public class BanServiceImpl implements BanService {
                             banCreation.setBanDuration(-1);
                             return Mono.just(banCreation);
                         case DETERMINED:
-                            return getBanDuration(reasonDocument.getBaseBanDuration(), banCreation.getUserId()).map(duration -> {
+                            return getBanDuration(reasonDocument.getBaseBanDuration(),
+                                    banCreation.getUserId()).map(duration -> {
                                 banCreation.setBanDuration(duration);
                                 return banCreation;
                             });
@@ -58,7 +59,7 @@ public class BanServiceImpl implements BanService {
                 });
     }
 
-    private Mono<Integer> getBanDuration(int baseBanDuration, long userId) {
+    private Mono<Integer> getBanDuration(int baseBanDuration, String userId) {
         return banRepository.findAllByUserId(userId)
                 .count()
                 .map(bansCount -> {

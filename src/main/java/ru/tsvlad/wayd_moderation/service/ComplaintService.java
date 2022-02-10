@@ -11,6 +11,7 @@ import java.util.List;
 
 public interface ComplaintService {
     Mono<ComplaintDocument> createComplaintAndSetModerator(ComplaintDocument complaintDocument);
-    Flux<ComplaintDocument> getComplaintsForModerator(long moderatorId, List<ComplaintStatus> complaintStatusList, List<ComplaintType> types);
-    Mono<ComplaintDocument> processComplaint(ComplaintProcessing complaintProcessing, long moderatorId);
+    Flux<ComplaintDocument> getComplaintsForModerator(String moderatorId, List<ComplaintStatus> complaintStatusList,
+                                                      List<ComplaintType> types);
+    Mono<ComplaintDocument> processComplaint(ComplaintProcessing complaintProcessing, String moderatorId);
 }

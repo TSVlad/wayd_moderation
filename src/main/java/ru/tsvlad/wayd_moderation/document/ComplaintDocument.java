@@ -36,7 +36,7 @@ public class ComplaintDocument {
     private String message;
     private String reason;
 
-    private long complainingUserId;
+    private String complainingUserId;
 
     private EventDTO eventDTO;
     private UserDTO userDTO;
@@ -44,7 +44,7 @@ public class ComplaintDocument {
 
     private ComplaintType type;
 
-    private long moderatorId;
+    private String moderatorId;
     private String moderatorComment;
 
     private ComplaintStatus complaintStatus = ComplaintStatus.NEW;

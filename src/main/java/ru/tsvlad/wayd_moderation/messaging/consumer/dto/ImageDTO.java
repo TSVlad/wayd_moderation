@@ -19,5 +19,5 @@ public class ImageDTO {
     private Validity validity;
     private ImageStatus status;
 
-    private long ownerId;
+    private String ownerId;
 }

@@ -9,7 +9,7 @@ import java.time.LocalDate;
 
 @Repository
 public interface BanRepository extends ReactiveMongoRepository<BanDocument, String> {
-    Flux<BanDocument> findAllByUserId(long userId);
+    Flux<BanDocument> findAllByUserId(String userId);
     Flux<BanDocument> findAllByBanUntil(LocalDate localDate);
-    Flux<BanDocument> findAllByUserIdAndBanUntilAfter(long userId, LocalDate localDate);
+    Flux<BanDocument> findAllByUserIdAndBanUntilAfter(String userId, LocalDate localDate);
 }

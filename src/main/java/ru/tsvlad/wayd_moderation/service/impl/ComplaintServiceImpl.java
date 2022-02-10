@@ -39,12 +39,13 @@ public class ComplaintServiceImpl implements ComplaintService {
     }
 
     @Override
-    public Flux<ComplaintDocument> getComplaintsForModerator(long moderatorId, List<ComplaintStatus> complaintStatusList, List<ComplaintType> types) {
+    public Flux<ComplaintDocument> getComplaintsForModerator(String moderatorId, List<ComplaintStatus> complaintStatusList,
+                                                             List<ComplaintType> types) {
         return complaintRepository.findByModeratorIdAndComplaintStatusInAndTypeIn(moderatorId, complaintStatusList, types);
     }
 
     @Override
-    public Mono<ComplaintDocument> processComplaint(ComplaintProcessing complaintProcessing, long moderatorId) {
+    public Mono<ComplaintDocument> processComplaint(ComplaintProcessing complaintProcessing, String moderatorId) {
         return complaintRepository.findById(complaintProcessing.getComplaintId())
                 .flatMap(complaintDocument -> {
                     complaintDocument.process(complaintProcessing);
@@ -59,7 +60,8 @@ public class ComplaintServiceImpl implements ComplaintService {
                                 processInvalidUser();
                                 break;
                             case INVALID_IMAGE:
-                                processInvalidImage(complaintDocument.getImageDTO().getId(), complaintProcessing.getModeratorDecision());
+                                processInvalidImage(complaintDocument.getImageDTO().getId(),
+                                        complaintProcessing.getModeratorDecision());
                                 break;
                         }
                     }

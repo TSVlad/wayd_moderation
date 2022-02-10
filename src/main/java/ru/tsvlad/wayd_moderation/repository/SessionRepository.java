@@ -8,6 +8,6 @@ import ru.tsvlad.wayd_moderation.document.SessionDocument;
 
 @Repository
 public interface SessionRepository extends ReactiveMongoRepository<SessionDocument, String> {
-    Mono<SessionDocument> findByModeratorIdAndEndIsNull(long moderatorId);
+    Mono<SessionDocument> findByModeratorIdAndEndIsNull(String moderatorId);
     Flux<SessionDocument> findByEndIsNull();
 }

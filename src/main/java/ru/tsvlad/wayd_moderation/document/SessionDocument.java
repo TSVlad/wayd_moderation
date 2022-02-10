@@ -20,7 +20,7 @@ public class SessionDocument {
     private String id;
 
     @Indexed
-    private long moderatorId;
+    private String moderatorId;
 
     private ZonedDateTime start;
 
