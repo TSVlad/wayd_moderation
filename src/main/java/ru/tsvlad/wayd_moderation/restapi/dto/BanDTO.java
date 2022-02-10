@@ -15,5 +15,5 @@ public class BanDTO {
     private ZonedDateTime banDateTime;
     private LocalDate banUntil;
 
-    private long moderatorId;
+    private String moderatorId;
 }

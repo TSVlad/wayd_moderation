@@ -14,5 +14,5 @@ public class EventDTO {
     private String category;
     private String subCategory;
 
-    private long ownerId;
+    private String ownerId;
 }

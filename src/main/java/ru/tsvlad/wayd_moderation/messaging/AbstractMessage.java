@@ -22,5 +22,4 @@ public abstract class AbstractMessage implements Serializable {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss.SSS")
     private LocalDateTime created;
 
-//    private KeycloakAuthenticationToken userInfo;
 }
