@@ -30,9 +30,8 @@ public class SessionController {
     @PostMapping("/start")
     @PreAuthorize("hasRole('ROLE_MODERATOR')")
     public Mono<SessionDTO> startSession(Authentication authentication) {
-        return Mono.empty();
-//        return sessionService.startSession(authenticationService.getUserId(authentication))
-//                .map(sessionDocument -> modelMapper.map(sessionDocument, SessionDTO.class));
+        return sessionService.startSession(authenticationService.getUserId(authentication))
+                .map(sessionDocument -> modelMapper.map(sessionDocument, SessionDTO.class));
     }
 
     @PostMapping("/close")

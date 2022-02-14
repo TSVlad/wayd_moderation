@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-import ru.tsvlad.wayd_moderation.business.BanCreation;
+import ru.tsvlad.wayd_moderation.common.BanCreation;
 
 import java.time.LocalDate;
 import java.time.ZonedDateTime;

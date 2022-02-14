@@ -1,4 +1,4 @@
-package ru.tsvlad.wayd_moderation.business;
+package ru.tsvlad.wayd_moderation.common;
 
 import lombok.Data;
 import ru.tsvlad.wayd_moderation.enums.ModeratorDecision;

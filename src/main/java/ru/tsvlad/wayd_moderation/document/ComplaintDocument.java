@@ -8,7 +8,7 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Version;
 import org.springframework.data.mongodb.core.mapping.Document;
-import ru.tsvlad.wayd_moderation.business.ComplaintProcessing;
+import ru.tsvlad.wayd_moderation.common.ComplaintProcessing;
 import ru.tsvlad.wayd_moderation.enums.ComplaintStatus;
 import ru.tsvlad.wayd_moderation.enums.ComplaintType;
 import ru.tsvlad.wayd_moderation.messaging.consumer.dto.ImageDTO;

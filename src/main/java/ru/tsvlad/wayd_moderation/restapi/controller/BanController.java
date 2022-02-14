@@ -2,7 +2,6 @@ package ru.tsvlad.wayd_moderation.restapi.controller;
 
 import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
-import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -10,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Mono;
-import ru.tsvlad.wayd_moderation.business.BanCreation;
+import ru.tsvlad.wayd_moderation.common.BanCreation;
 import ru.tsvlad.wayd_moderation.restapi.dto.BanCreationDTO;
 import ru.tsvlad.wayd_moderation.restapi.dto.BanDTO;
 import ru.tsvlad.wayd_moderation.service.AuthenticationService;

@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
-import ru.tsvlad.wayd_moderation.business.BanCreation;
+import ru.tsvlad.wayd_moderation.common.BanCreation;
 import ru.tsvlad.wayd_moderation.config.props.BanProperties;
 import ru.tsvlad.wayd_moderation.document.BanDocument;
 import ru.tsvlad.wayd_moderation.messaging.producer.ModerationServiceProducer;

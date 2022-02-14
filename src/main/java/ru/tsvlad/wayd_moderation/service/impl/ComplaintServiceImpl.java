@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
-import ru.tsvlad.wayd_moderation.business.ComplaintProcessing;
+import ru.tsvlad.wayd_moderation.common.ComplaintProcessing;
 import ru.tsvlad.wayd_moderation.document.ComplaintDocument;
 import ru.tsvlad.wayd_moderation.enums.ModeratorDecision;
 import ru.tsvlad.wayd_moderation.enums.ComplaintStatus;
