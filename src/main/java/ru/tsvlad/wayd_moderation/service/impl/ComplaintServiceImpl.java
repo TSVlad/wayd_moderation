@@ -1,6 +1,7 @@
 package ru.tsvlad.wayd_moderation.service.impl;
 
 import lombok.AllArgsConstructor;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -45,5 +46,16 @@ public class ComplaintServiceImpl implements ComplaintService {
                     complaintDocument.process(complaintProcessing);
                     return complaintRepository.save(complaintDocument);
                 });
+    }
+
+    @Scheduled(cron = "0 0 * * * *")
+    public void setModeratorsToComplaints() {
+        complaintRepository.findAllByModeratorIdIsNull()
+                .flatMap(complaintDocument -> sessionService.getRandomOpenSession()
+                        .map(sessionDocument -> {
+                            System.out.println(sessionDocument);
+                            complaintDocument.setModeratorId(sessionDocument.getModeratorId());
+                            return complaintDocument;
+                        })).flatMap(complaintRepository::save).subscribe();
     }
 }

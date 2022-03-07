@@ -14,4 +14,5 @@ public interface ComplaintRepository extends ReactiveMongoRepository<ComplaintDo
     Flux<ComplaintDocument> findByModeratorIdAndComplaintStatusInAndTypeIn(String moderatorId,
                                                                            List<ComplaintStatus> complaintStatusList,
                                                                            List<ComplaintType> types);
+    Flux<ComplaintDocument> findAllByModeratorIdIsNull();
 }
