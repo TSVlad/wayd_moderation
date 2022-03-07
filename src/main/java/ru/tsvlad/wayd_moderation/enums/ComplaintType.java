@@ -6,4 +6,5 @@ public enum ComplaintType {
     INVALID_IMAGE,
     COMPLAINT_EVENT,
     COMPLAINT_USER,
+    COMPLAINT_BUG
 }
