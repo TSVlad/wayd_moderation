@@ -11,8 +11,7 @@ public class ComplaintPublicDTO {
     private String message;
     private String reason;
 
-    private EventDTO eventDTO;
-    private UserDTO userDTO;
+    private String objectId;
 
     private ComplaintType type;
 }

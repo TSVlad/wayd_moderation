@@ -38,9 +38,7 @@ public class ComplaintDocument {
 
     private String complainingUserId;
 
-    private EventDTO eventDTO;
-    private UserDTO userDTO;
-    private ImageDTO imageDTO;
+    private String objectId;
 
     private ComplaintType type;
 
@@ -57,7 +55,7 @@ public class ComplaintDocument {
 
     public static ComplaintDocument createInvalidImageComplaint(ImageDTO imageDTO) {
         return ComplaintDocument.builder()
-                .imageDTO(imageDTO)
+                .objectId(imageDTO.getId())
                 .type(ComplaintType.INVALID_IMAGE)
                 .complaintStatus(ComplaintStatus.NEW)
                 .build();

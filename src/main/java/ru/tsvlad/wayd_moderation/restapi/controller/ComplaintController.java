@@ -30,7 +30,7 @@ public class ComplaintController {
     private final ModelMapper modelMapper;
 
     @PostMapping
-    @PreAuthorize("authenticated()")
+    @PreAuthorize("hasRole('ROLE_USER')")
     public Mono<ComplaintPublicDTO> sendComplaint(@RequestBody ComplaintPublicDTO complaintPublicDTO,
                                                   Authentication authentication) {
         ComplaintDocument complaintDocument = modelMapper.map(complaintPublicDTO, ComplaintDocument.class);

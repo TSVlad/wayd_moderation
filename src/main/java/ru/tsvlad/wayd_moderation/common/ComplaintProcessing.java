@@ -10,7 +10,4 @@ public class ComplaintProcessing {
     private String moderatorComment;
 
     private ComplaintStatus complaintStatus;
-
-    private ModeratorDecision moderatorDecision;
-    private BanCreation banCreation;
 }

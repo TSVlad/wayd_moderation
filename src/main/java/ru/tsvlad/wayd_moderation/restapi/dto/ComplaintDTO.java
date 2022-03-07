@@ -19,8 +19,7 @@ public class ComplaintDTO {
 
     private String complainingUserId;
 
-    private EventDTO eventDTO;
-    private UserDTO userDTO;
+    private String objectId;
 
     private ComplaintType type;
 
