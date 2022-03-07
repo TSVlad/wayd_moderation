@@ -31,11 +31,18 @@ public class ModerationServiceProducer {
                 .build());
     }
 
-    public void processImage(String imageId, ModeratorDecision decision) {
+
+    public void blockEvent(String eventId) {
         send(ModerationMessage.builder()
-                .type(ModerationMessageType.IMAGE_MODERATION_DECISION)
-                .imageId(imageId)
-                .decision(decision)
+                .type(ModerationMessageType.BLOCK_EVENT)
+                .objectId(eventId)
+                .build());
+    }
+
+    public void blockImage(String imageId) {
+        send(ModerationMessage.builder()
+                .type(ModerationMessageType.BLOCK_IMAGE)
+                .objectId(imageId)
                 .build());
     }
 

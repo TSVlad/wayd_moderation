@@ -14,6 +14,6 @@ public class ModerationMessage extends AbstractMessage {
     private ModerationMessageType type;
     private BanDTO banDTO;
 
-    private String imageId;
+    private String objectId;
     private ModeratorDecision decision;
 }
