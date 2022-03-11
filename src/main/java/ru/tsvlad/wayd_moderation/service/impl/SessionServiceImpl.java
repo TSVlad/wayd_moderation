@@ -1,6 +1,5 @@
 package ru.tsvlad.wayd_moderation.service.impl;
 
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
@@ -50,5 +49,10 @@ public class SessionServiceImpl implements SessionService {
                     }
                     return Mono.just(list.get(random.nextInt(list.size())));
                 });
+    }
+
+    @Override
+    public Mono<SessionDocument> getCurrentSession(String moderatorId) {
+        return sessionRepository.findByModeratorIdAndEndIsNull(moderatorId);
     }
 }

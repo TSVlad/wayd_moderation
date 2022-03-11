@@ -8,6 +8,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.oauth2.core.user.OAuth2User;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -39,5 +40,12 @@ public class SessionController {
     public Mono<SessionDTO> closeSession(Authentication authentication) {
         return sessionService.closeSession(authenticationService.getUserId(authentication))
                 .map(sessionDocument -> modelMapper.map(sessionDocument, SessionDTO.class));
+    }
+
+    @GetMapping("/current")
+    @PreAuthorize("hasRole('ROLE_MODERATOR')")
+    public Mono<SessionDTO> getCurrentSession(Authentication authentication) {
+        return sessionService.getCurrentSession(authenticationService.getUserId(authentication))
+                .map(sessionDocument ->  modelMapper.map(sessionDocument, SessionDTO.class));
     }
 }
