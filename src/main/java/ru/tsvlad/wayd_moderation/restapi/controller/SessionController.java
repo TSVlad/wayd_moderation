@@ -31,6 +31,7 @@ public class SessionController {
     @PostMapping("/start")
     @PreAuthorize("hasRole('ROLE_MODERATOR')")
     public Mono<SessionDTO> startSession(Authentication authentication) {
+        log.debug("Start session request gotten");
         return sessionService.startSession(authenticationService.getUserId(authentication))
                 .map(sessionDocument -> modelMapper.map(sessionDocument, SessionDTO.class));
     }
@@ -38,6 +39,7 @@ public class SessionController {
     @PostMapping("/close")
     @PreAuthorize("hasRole('ROLE_MODERATOR')")
     public Mono<SessionDTO> closeSession(Authentication authentication) {
+        log.debug("Close session request gotten");
         return sessionService.closeSession(authenticationService.getUserId(authentication))
                 .map(sessionDocument -> modelMapper.map(sessionDocument, SessionDTO.class));
     }
@@ -45,6 +47,7 @@ public class SessionController {
     @GetMapping("/current")
     @PreAuthorize("hasRole('ROLE_MODERATOR')")
     public Mono<SessionDTO> getCurrentSession(Authentication authentication) {
+        log.debug("Get currant session request gotten");
         return sessionService.getCurrentSession(authenticationService.getUserId(authentication))
                 .map(sessionDocument ->  modelMapper.map(sessionDocument, SessionDTO.class));
     }

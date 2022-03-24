@@ -15,7 +15,7 @@ spring:
   data:
     mongodb:
       auto-index-creation: true
-      uri: mongodb://localhost:27017/wayd-moderation
+      uri: mongodb://localhost:27024/wayd-moderation
   jackson:
     serialization:
       WRITE_DATES_AS_TIMESTAMPS: false

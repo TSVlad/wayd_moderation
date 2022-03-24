@@ -1,6 +1,7 @@
 package ru.tsvlad.wayd_moderation.restapi.controller;
 
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,6 +15,7 @@ import ru.tsvlad.wayd_moderation.service.BlockService;
 @RestController
 @RequestMapping("/blocks")
 @AllArgsConstructor
+@Slf4j
 public class BlockController {
 
     private final BlockService blockService;
@@ -22,6 +24,7 @@ public class BlockController {
 
     @PostMapping
     public Mono<BlockDTO> block(@RequestBody BlockDTO blockDTO) {
+        log.debug("Block request gotten: {}", blockDTO);
         return blockService.block(modelMapper.map(blockDTO, BlockDocument.class))
                 .map(blockDocument -> modelMapper.map(blockDocument, BlockDTO.class));
     }

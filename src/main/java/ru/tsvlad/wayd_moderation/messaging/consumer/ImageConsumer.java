@@ -17,9 +17,9 @@ public class ImageConsumer {
 
     @KafkaListener(topics = {"image-to-moderation"}, containerFactory = "singleFactory")
     public void consume(ImageMessage message) {
+        log.debug("Message from image ");
         switch (message.getType()) {
             case INVALID_IMAGE:
-                log.info("msg: {}", message);
                 complaintService
                         .createComplaintAndSetModerator(ComplaintDocument.createInvalidImageComplaint(message.getImageDTO()))
                         .subscribe();

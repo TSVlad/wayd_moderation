@@ -1,6 +1,7 @@
 package ru.tsvlad.wayd_moderation.restapi.controller;
 
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
@@ -20,6 +21,7 @@ import javax.validation.Valid;
 @RestController
 @RequestMapping("/ban")
 @AllArgsConstructor
+@Slf4j
 public class BanController {
     private final BanService banService;
     private final AuthenticationService authenticationService;
@@ -29,6 +31,7 @@ public class BanController {
     @PostMapping
     @PreAuthorize("hasRole('ROLE_MODERATOR')")
     public Mono<BanDTO> banUser(@Valid  @RequestBody BanCreationDTO banCreationDTO, Authentication  authentication) {
+        log.debug("Ban user request gotten: {}", banCreationDTO);
         BanCreation banCreation = modelMapper.map(banCreationDTO, BanCreation.class);
         banCreation.setModeratorId(authenticationService.getUserId(authentication));
         return banService.banUser(banCreation).map(banDocument -> modelMapper.map(banDocument, BanDTO.class));
